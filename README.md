@@ -518,6 +518,8 @@ Virus signatures: 202008291014
 
 ### F-PROT Antivirus for Windows 6.7.5.5955 (Command Line)
 
+Can be download from https://archive.org/details/fprot-antivirus-collections
+
 Command: `wine fpscan.exe --heurlevel=4 --scanlevel=4 --disinfect --deleteall --output=report.log "..\..\DOS\F\Virus.DOS"`
 
 Detected: 16525
