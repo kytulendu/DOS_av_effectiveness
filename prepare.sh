@@ -5,8 +5,8 @@ declare -i i=0
 declare -i f_count=0
 declare -i d_count=0
 
-if [ -f 'Virus.DOS.csv' ]; then
-    rm Virus.DOS.csv
+if [ -f 'Virus.csv' ]; then
+    rm Virus.csv
 fi
 
 # Prevent directory accessing issue in some DOS anti-virus software
@@ -24,7 +24,7 @@ while read -r line; do
     fi
 
     num=$(printf "%08d\n" "${i}")
-    echo "${d_count};${num};${line}" >> ../Virus.DOS.csv
+    echo "${d_count};${num};${line}" >> ../Virus.csv
 
     # rename to .COM to help some anti-virus detect it
     mv ${line} ./${d_count}/${num}.COM
