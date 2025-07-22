@@ -1,10 +1,10 @@
-# Comparison of various anti-virus effectiveness for detecting DOS viruses
+# Antivirus Effectiveness in Detecting DOS Viruses
 
-By Khralkatorrix, 2025.xx.xx
+By Khralkatorrix, 2025/07/xx
 
-TODO
+**TODO:Insert intro here**
 
-## Testing terminology
+## Testing Methodology
 
 **Warning: The virus samples archive contain live virus, do not execute any files inside**
 
@@ -24,6 +24,13 @@ All anti-virus have up to date virus definition and are scanned with these optio
 DOS anti-virus samples are rename to 8 characters long numbers `.COM` file using `prepare.sh` script
 before scanning to work around DOS 8.3 file name and limitation of some anti-virus software.
 
+**Testing Environment:**
+
+- Modern Windows anti-virus run on Windows 10 Pro with latest update.
+- Command Line Windows anti-virus run on Arch Linux with latest update using [Wine](https://www.winehq.org/).
+- Linux anti-virus run on Arch Linux with latest update.
+- DOS anti-virus run on Arch Linux with latest update using [DOSBox-X](github.com/joncampbell123/dosbox-x).
+
 ## Result
 
 |                       Software                        | Signature  | Detected | Rate  |
@@ -33,7 +40,7 @@ before scanning to work around DOS 8.3 file name and limitation of some anti-vir
 | AVG Free Antivirus 2016                               | 2016/10/13 | 15284    | 90.66 |
 | AVG Free Antivirus                                    | 2025/07/07 | 4894     | 29.03 |
 | Avira Free Security                                   | 2025/07/07 | 0        | 0     |
-| Avira Command Line Scanner ScanCL 1.9.152.0           | 8.20.58.134  2025/07/17 | 9551 | 56.65 |
+| Avira Command Line Scanner ScanCL 1.9.152.0           | 2025/07/17 | 9551     | 56.65 |
 | Bitdefender Antivirus Free                            | 2025/07/07 | 15191    | 90.11 |
 | Central Point Anti-Virus 2.60                         | 1996/09/01 | crash    |       |
 | ClamAV 1.4.2                                          | 2025/07/03 | 14443    | 85.67 |
@@ -63,9 +70,9 @@ before scanning to work around DOS 8.3 file name and limitation of some anti-vir
 | McAfee VirusScan Command Line 6.1.4.305               | v11484 2025/07/05 | 16558 | 98.21 |
 | Microsoft Anti-Virus (MSAV)                           | 1994/06/01 | 1445     | 8.57  |
 | Microsoft Security Essentials                         | 2025/07/17 | 15527    | 92.10 |
-| Microsoft Windows Defender                            | 1.431.348.0 2025/07/02 | 15543 | 92.19 |
+| Microsoft Windows Defender                            | 2025/07/02 | 15543    | 92.19 |
 | NOD32 for DOS                                         | 2009/05/14 | 15700    | 93.13 |
-| Norton Antivirus Command Line 1.0                     | 1999/06/07 | 14052    | 83.35 |
+| Norton AntiVirus Command-Line Scanner                 | 1999/06/07 | 14052    | 83.35 |
 | RMS - ROSE SWE's Malware Scanner 3.14.1               | 2025/05/04 | 15612    | 92.60 |
 | Symantec Endpoint Protection 14.3 (Norton Antivirus)  | 2025/07/08 | 12910    | 76.58 |
 | Thunderbyte Antivirus 8.11                            | 1999/11/18 | 14361    | 85.18 |
@@ -73,18 +80,20 @@ before scanning to work around DOS 8.3 file name and limitation of some anti-vir
 | Trend Micro Antivirus+                                | 2025/07/08 | 15701    | 93.13 |
 | Trend Micro PCSCAN 7.50                               | 2006/08/10 | 15866    | 94.11 |
 | Trend Micro VSCANTM 3.00-1018                         | 20.301.00 (2025.07.03) | 15694 | 93.09 |
-| Vba32 AntiVirus (Console scanner) for Linux 5.3.2     | 2025/07/03 | 1819     | 10.79 |
+| Vexira Antivirus Scanner 2006                         | 2006/12/12 | 14479    | 85.88 |
+| Vba32 AntiVirus (Console scanner) for Linux 5.3.2     | 2025/07/21 | 7588     | 45.01 |
 
 Note:
 - Some modern anti-virus suck at detecting DOS viruses, such as AVG and Vba32.
 Avira Free Security is the worst offender here with 0 detection! WTF!
 While the old Avira Command Line Scanner is way better than new version with 56.65% DOS viruses detection rate.
-- Some modern anti-virus UI will slowdown so much it freeze with all the result of 16,859 virus lol
+- Some modern anti-virus UI will slowdown so much it freeze with 1,000+ scan result, such as
+Avast Free Antivirus, AVG Free AntiVirus and Microsoft Windows Defender.
 - Some virus can't be removed by some anti-virus due to the anti-virus have not program for
-delete entire container/archive if it was infected such as McAfee/Trellix.
-- Some DOS anti-virus scan ended prematurely or crash, possibly due to a bug in scanner triggered by some virus
+delete entire container/archive if it was infected such as Norton AntiVirus Command-Line Scanner and McAfee/Trellix.
+- Some DOS anti-virus scan ended prematurely or crash, possibly due to a bug in scanner triggered by some virus's
 anti-antivirus code.
-- See into detail below.
+- See below for more detail.
 
 ### 360 Total Security
 
@@ -104,6 +113,10 @@ Signatures: 2025/07/08
 
 ### Avast Free Antivirus
 
+This anti-virus is only effective in detecting modern malware.
+
+The result UI is freeze/slowdown with all the detected viruses
+
 Command: n/a, Using explorer scan.
 
 Detected: 4894
@@ -122,6 +135,8 @@ Signatures: 2025/07/07
 
 Old version of AVG, lastest version that use AVG's anti-virus engine.
 
+Can be download from https://archive.org/details/avg-antivirus-2016
+
 Command: n/a, Using explorer scan.
 
 Detected: 15284
@@ -138,7 +153,7 @@ Use same engine as Avast.
 
 This anti-virus is only effective in detecting modern malware.
 
-The result UI is freeze/slowdown with all the detected viruses lol
+The result UI is freeze/slowdown with all the detected viruses
 
 Command: n/a, Using explorer scan.
 
@@ -618,7 +633,7 @@ Database: 29.06.2025 07:56
 
 ### McAfee VirusScan for DOS/PM 4.40.0
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Have issue in deleting some viruses, report only.
 
@@ -649,7 +664,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Command: `./uvscan ~/DOS/F/Virus/ --recursive --summary --analyze > report.log`
 
@@ -682,7 +697,7 @@ Updated engine to version 5.1.00 to be able to use dat v5xxx.
 
 Have issue in deleting some viruses.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Command: `./uvscan ~/DOS/F/Virus.DOS/ --recursive --summary --analyze --delete > report.log`
 
@@ -713,7 +728,7 @@ Scanning for 424202 viruses, trojans and variants.
 
 Have issue in deleting some viruses.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
@@ -743,7 +758,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses, with error message `File not deleted - could be archive or compound file.`.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
@@ -773,7 +788,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses, with error message `File not deleted - could be archive or compound file.`.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/mcafee-virusscan-collection
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
@@ -862,8 +877,8 @@ Signatures: 2025/07/17
 
 Run on Windows 10 Pro using DefenderUI for advanced configuration.
 
-The result UI is freeze/slowdown and sometimes crash with all the detected viruses lol
-Need to use diskcleanup utility to delete Windows Defender's logs.
+The result UI is freeze/slowdown and sometimes crash with all the detected viruses
+Need to use diskcleanup utility to delete Windows Defender's logs to fix the freeze/slowdown issue.
 
 Command: n/a, Using explorer scan.
 
@@ -891,16 +906,16 @@ Executable: 2001/07/18
 Signatures: 2009/05/14
 ```
 
-### Norton Antivirus Command Line 1.0
+### Norton AntiVirus Command-Line Scanner
 
-From [Norton Antivirus 2000 (6.0)](https://archive.org/details/NortonAntiVirus2000Version6.0OEMSymantec1999), directory `NAVC`.
+From [Norton Antivirus 2000 (6.0)](https://archive.org/details/NortonAntiVirus2000Version6.0OEMSymantec1999) CD in directory `NAVC`.
 
 Need to scan each directory separately multiple times and manually delete some detected files.
 
-Can be update the engine `NAVEX.EXP` or `NAVEX15.EXP` and signatures from newer updates,
+Can update the engine `NAVEX.EXP` or `NAVEX15.EXP` and signatures from newer updates,
 tho I haven't test how many additional DOS virus it can detect yet.
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/norton-antivirus-command-line-scanner
 
 Command: `navc /b- /m- /nobeep /delete f:\virus\0`
 
@@ -1032,7 +1047,7 @@ pattern date       detected
 307     2025/07/05 6838
 ```
 
-Can be download from **TODO**
+Can be download from https://archive.org/details/trend-micro-pcscan-7.50-for-dos
 
 Command: `pcscan /nm /nb /a /z /d f:\virus`
 
@@ -1080,24 +1095,49 @@ VSCANTM Version : 3.00-1018 (Official Build) - 280 Function Imported
 Signatures: 20.301.00 (2025.07.03)
 ```
 
+### Vexira Antivirus Scanner 2006
+
+This anti-virus use Avira's Anti-Virus Engine.
+
+Using renamed samples `.COM` files.
+
+Can be download from https://archive.org/details/vexira-antivirus
+
+Command: `./vascan --old --summary --all-files --heuristics=high --sfx --action=d ~/DOS/F/Virus`
+
+Detected: 14479
+Suspicious: n/a
+
+```
+Vexira Scanner 1.3.3 for Linux (2006-11-21)
+Vexira Engine: 4.3.19:9 (2006-12-05), VDB: 9.050.7/11.0 (2006-12-12)
+Signatures: 2006/12/12
+```
+
 ### VirusBlokAda Vba32 AntiVirus (Console scanner) for Linux 5.3.2
 
 Anti-virus from Belarus.
 
+This anti-virus is only effective in detecting modern malware.
+
+Need to rename to samples file extension to `.COM` to improve detection rate.
+
+Demo mode can't remove infected files, report only.
+
 Can be download from https://www.anti-virus.by/install
 
-Command: `./vbacl -af -rw -ar -ha=4 -sfx -r=report.log ~/DOS/F/Virus.DOS/`
+Command: `./vbacl -af -rw -ar -ha=4 -sfx -r=report.log ~/DOS/F/Virus`
 
-Detected: 1819
-Suspicious: 1574
+Detected: 7588
+Suspicious: 4329
 
 ```
 +------------------------------------------------+
 |         VirusBlokAda (Console scanner)         |
-| Vba32 Linux 5.3.2 / 2025.06.27 07:50 (Vba32.L) |
+| Vba32 Linux 5.3.2 / 2025.07.21 08:02 (Vba32.L) |
 |      Copyright (c) 1993-2025 by VBA Ltd.       |
 +------------------------------------------------+
 Key file not found
 Demo mode
-Signatures: 2025/07/03
+Signatures: 2025/07/21
 ```
