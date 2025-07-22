@@ -34,7 +34,7 @@ before scanning to work around DOS 8.3 file name and limitation of some anti-vir
 ## Result
 
 |                       Software                        | Signature  | Detected | Rate  |
-|:-----------------------------------------------------:|:----------:|---------:|:-----:|
+|:------------------------------------------------------|:----------:|---------:|:-----:|
 | 360 Total Security                                    | 2025/07/08 | 16478    | 97.74 |
 | Avast Free Antivirus                                  | 2025/07/07 | 4894     | 29.03 |
 | AVG Free Antivirus 2016                               | 2016/10/13 | 15284    | 90.66 |
