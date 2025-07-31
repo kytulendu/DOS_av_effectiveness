@@ -56,7 +56,7 @@ before scanning to work around DOS 8.3 file name and limitation of some anti-vir
 | F-PROT Antivirus for UNIX 4.6.8                       | 2009/01/08 | 16179    | 95.97 |
 | F-PROT Antivirus for UNIX 6.2.3                       | 2020/08/29 | 16525    | 98.02 |
 | F-PROT Antivirus for Windows 6.7.5.5955 (Command Line)| 2020/08/29 | 16525    | 98.02 |
-| IBM Antivirus for DOS 3.0.1                           | 1997/09/15 | 10269    | 60.91 |
+| IBM Antivirus for DOS 3.0.1                           | 2000/12/06 | 12079    | 71.65 |
 | Ikarus T3 Commandline Scanner                         | 2025/07/07 | 11777    | 69.86 |
 | Kaspersky Anti-virus for DOS32 3.0 build 135          | 2002/09/08 | 16166    | 95.89 |
 | Kaspersky Free Antivirus                              | 2025/07/08 | 14089    | 83.57 |
@@ -550,24 +550,25 @@ Virus signatures: 202008291014
 ### IBM Antivirus for DOS 3.0.1
 
 Can be download from https://archive.org/details/ibm-antivirus-desktop-edition-v3.0.1-1997-ibm-cd
+Signature update from https://www.os2site.com/sw/util/antivirus/av30gg.zip
 
 Command: `ibmavsp -nb -cerr -nlmsg -scomp -bulk -allfiles -ywipe -logreport.log f:\virus`
 
-Detected: 10269
+Detected: 12079
 Suspicious: n/a
 
 ```
-10269 infected objects were found.
-65 infected objects were repaired.
-10204 infected objects were erased.
+12147 infected objects were found.
+68 infected objects were repaired.
+12079 infected objects were erased.
 No infected objects remain.
 ```
 
 ```
-IBM AntiVirus Stand-Alone Program Version 3.0 (build 301.612 signature AV30N)
+IBM AntiVirus Stand-Alone Program Version 3.0 (build 301.612 signature AV30GG)
 Driver Levels:
-virsig.lst: AV30N    (1997/09/15), verv.vdb: AV30N    (1997/09/15), 
-shsig.lst: AV30N    (1997/09/15), dtsig.lst: AV30N    (1997/09/15)
+virsig.lst: AV30GG   (2000/12/06), verv.vdb: AV30GG   (2000/12/06),
+shsig.lst: AV30GG   (2000/12/06), dtsig.lst: AV30GG   (2000/12/06)
 ```
 
 ### Ikarus T3 Commandline Scanner
@@ -635,7 +636,7 @@ Database: 29.06.2025 07:56
 
 ### McAfee VirusScan for DOS/PM 4.40.0
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Have issue in deleting some viruses, report only.
 
@@ -666,7 +667,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses.
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Command: `./uvscan ~/DOS/F/Virus/ --recursive --summary --analyze > report.log`
 
@@ -699,7 +700,7 @@ Updated engine to version 5.1.00 to be able to use dat v5xxx.
 
 Have issue in deleting some viruses.
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Command: `./uvscan ~/DOS/F/Virus.DOS/ --recursive --summary --analyze --delete > report.log`
 
@@ -730,7 +731,7 @@ Scanning for 424202 viruses, trojans and variants.
 
 Have issue in deleting some viruses.
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
@@ -760,7 +761,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses, with error message `File not deleted - could be archive or compound file.`.
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
@@ -790,7 +791,7 @@ Scanning for 234175 viruses, trojans and variants.
 
 Have issue in deleting some viruses, with error message `File not deleted - could be archive or compound file.`.
 
-Can be download from https://archive.org/details/mcafee-virusscan-collection
+Can be download from https://archive.org/details/mcafee-virusscan-collections
 
 Command: `wine scan /all /analyze /unzip /sub /report report.log /delete "..\..\DOS\F\Virus.DOS"`
 
